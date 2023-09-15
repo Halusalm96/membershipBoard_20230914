@@ -26,7 +26,6 @@ public class BoardController {
     @PostMapping("/board/save/date")
     public String boardSaveDate(@ModelAttribute BoardDTO boardDTO){
         boardService.boardSaveDate(boardDTO);
-        System.out.println("boardDTO = " + boardDTO);
         return "member/memberLogin";
     }
     @GetMapping("/board/list")
@@ -36,10 +35,10 @@ public class BoardController {
         return "board/boardList";
     }
     @GetMapping("/board/detail")
-    public String boardDetail(@RequestParam("id") Long id, Model model){
+    public String boardDetail(@RequestParam("id") Long id, Model model, HttpSession session){
         BoardDTO boardDTO = boardService.boardDetail(id);
-        System.out.println("boardDTO = " + boardDTO);
         model.addAttribute("board",boardDTO);
+        session.setAttribute("board",boardDTO);
         return "board/boardDetail";
     }
 }

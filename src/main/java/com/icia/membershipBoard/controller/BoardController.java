@@ -35,10 +35,11 @@ public class BoardController {
         model.addAttribute("boardList", boardDTOList);
         return "board/boardList";
     }
-    @PostMapping("/board/detail")
+    @GetMapping("/board/detail")
     public String boardDetail(@RequestParam("id") Long id, Model model){
         BoardDTO boardDTO = boardService.boardDetail(id);
-        model.addAttribute(boardDTO);
+        System.out.println("boardDTO = " + boardDTO);
+        model.addAttribute("board",boardDTO);
         return "board/boardDetail";
     }
 }

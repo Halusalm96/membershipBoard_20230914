@@ -15,7 +15,6 @@
         <td>작성일자</td>
         <%--        <td>이미지</td>--%>
     </tr>
-    <c:forEach items="${boardList}" var="board">
     <tr>
         <td>${board.id}</td>
         <td>${board.boardTitle}</td>
@@ -24,10 +23,13 @@
         <td>${board.boardHits}</td>
         <td>${board.createdAt}</td>
             <%--        <td>${board.fileAttachde}</td>--%>
-        <td>
-            <button class="btn btn-info" onclick="detail_fn('${board.id}')">조회</button>
-        </td>
+<%--        <td>--%>
+<%--            <button class="btn btn-info" onclick="comment_fn('${board.id}')">댓글</button>--%>
+<%--        </td>--%>
     </tr>
-    </c:forEach>
+</table>
 </body>
+<script>
+
+</script>
 </html>

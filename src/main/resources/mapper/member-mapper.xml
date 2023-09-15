@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Member">
+    <insert id="insert" parameterType="member">
+        insert into membership_member_table(memberEmail, memberPassword, memberName, memberMobile)
+        values (#{memberEmail}, #{memberPassword}, #{memberName}, #{memberMobile})
+    </insert>
+    <!--    사진추가하기-->
+    <select id="login" parameterType="member" resultType="member">
+        select * from membership_member_table where memberEmail=#{memberEmail} and memberPassword=#{memberPassword}
+    </select>
+</mapper>
+
+
+
+
+
+
+
+
+

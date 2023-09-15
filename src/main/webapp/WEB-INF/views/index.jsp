@@ -11,4 +11,7 @@
 </form>
 <a href="/member/save">회원가입</a>
 </body>
+<script>
+
+</script>
 </html>

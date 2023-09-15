@@ -23,4 +23,8 @@ public class MemberService {
             return false;
         }
     }
+
+    public MemberDTO emailCheck(String memberEmail) {
+        return memberRepository.emailCheck(memberEmail);
+    }
 }

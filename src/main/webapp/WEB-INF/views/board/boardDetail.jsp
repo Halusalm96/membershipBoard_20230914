@@ -46,12 +46,10 @@
     <input type="text" name="commentWriter" value="${board.boardWriter}" readonly> <br>
     <textarea name="commentContents" cols="30" rows="10" placeholder="내용"></textarea> <br>
     <input type="hidden" name="boardId" value="${board.id}">
-    <input type="submit" value="등록" onclick="comment_fn('${board.id}')">
+    <input type="submit" value="등록">
 </form>
 </body>
 <script>
-    const comment_fn = (id) =>{
-        location.href = "/board/detail?id=" + id;
-    }
+    const id = ${board.id};
 </script>
 </html>

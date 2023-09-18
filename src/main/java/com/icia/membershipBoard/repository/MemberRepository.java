@@ -19,4 +19,16 @@ public class MemberRepository {
     public MemberDTO emailCheck(String memberEmail) {
         return sql.selectOne("Member.emailCheck",memberEmail);
     }
+
+    public void delete(Long id) {
+        sql.delete("Memeber.delete",id);
+    }
+
+    public MemberDTO findOne(String memberEmail) {
+        return sql.selectOne("Member.findOne",memberEmail);
+    }
+
+    public void update(MemberDTO memberDTO) {
+        sql.update("Member.update",memberDTO);
+    }
 }

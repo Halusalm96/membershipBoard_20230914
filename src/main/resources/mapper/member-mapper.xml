@@ -14,6 +14,16 @@
     <select id="emailCheck" parameterType="String" resultType="member">
         select * from membership_member_table where memberEmail=#{memberEmail}
     </select>
+    <delete id="delete" parameterType="Long">
+        delete from membership_member_table where id=#{id}
+    </delete>
+    <select id="findOne" parameterType="String" resultType="member">
+        select * from membership_member_table where memberEmail=#{memberEmail}
+    </select>
+    <update id="update" parameterType="member">
+        update membership_member_table set memberName= #{memberName},memberMobile=#{memberMobile}
+        where memberEmail= #{memberEmail}
+    </update>
 </mapper>
 
 

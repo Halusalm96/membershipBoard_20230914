@@ -41,7 +41,8 @@ public class MemberController {
         }
     }
     @GetMapping("/logout")
-    public String logout(){
+    public String logout(HttpSession session){
+        session.removeAttribute("loginMemberEmail");
         return "index";
     }
     @PostMapping("/email-check")
@@ -52,5 +53,23 @@ public class MemberController {
         } else {
             return new ResponseEntity<>(HttpStatus.CONFLICT);
         }
+    }
+    @GetMapping ("/delete")
+    public String delete(@RequestParam("id") Long id){
+        memberService.delete(id);
+        return "index";
+    }
+    @GetMapping("/member/main")
+    public String memberMail(@RequestParam("memberEmail") String memberEmail, Model model){
+        System.out.println("memberEmail = " + memberEmail + ", model = " + model);
+        MemberDTO memberDTO = memberService.findOne(memberEmail);
+        model.addAttribute("memberDTO",memberDTO);
+        System.out.println(memberDTO);
+        return "member/memberMain";
+    }
+    @PostMapping("/member/save/update")
+    public String memberSaveUpdate(@ModelAttribute MemberDTO memberDTO){
+        memberService.update(memberDTO);
+        return "member/memberLogin";
     }
 }

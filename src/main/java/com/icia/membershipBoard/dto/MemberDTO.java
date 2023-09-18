@@ -11,6 +11,7 @@ import java.util.List;
 @Getter
 @ToString
 public class MemberDTO {
+    private Long id;
     private String memberEmail;
     private String memberPassword;
     private String memberName;

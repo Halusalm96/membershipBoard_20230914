@@ -11,7 +11,8 @@
         <input type="text" name="memberPassword" placeholder="비밀번호 입력">
         <input type="text" name="memberName" placeholder="이름 입력">
         <input type="text" name="memberMobile" placeholder="전화번호 입력">
-        <input>
+        <textarea name="boardContents" cols="30" rows="10"></textarea> <br>
+        <input type="file" name="boardFile" multiple> <br>
         <input type="submit" value="회원가입">
     </form>
 </body>

@@ -27,4 +27,16 @@ public class MemberService {
     public MemberDTO emailCheck(String memberEmail) {
         return memberRepository.emailCheck(memberEmail);
     }
+
+    public void delete(Long id) {
+        memberRepository.delete(id);
+    }
+
+    public MemberDTO findOne(String memberEmail) {
+        return memberRepository.findOne(memberEmail);
+    }
+
+    public void update(MemberDTO memberDTO) {
+        memberRepository.update(memberDTO);
+    }
 }

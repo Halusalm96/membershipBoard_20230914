@@ -20,21 +20,24 @@ public class MemberController {
     public String memberSave(){
         return "member/memberSave";
     }
+    @GetMapping ("/member/memberLogin")
+    public String memberLogin(){
+        return "member/memberLogin";
+    }
     @PostMapping("/member/save/date")
     public String memberSaveDate(@ModelAttribute MemberDTO memberDTO){
         memberService.memberSave(memberDTO);
         return "index";
     }
     @GetMapping("/login")
-    public String login(@ModelAttribute MemberDTO memberDTO, HttpSession session,Model model){
+    public ResponseEntity login(@ModelAttribute MemberDTO memberDTO, HttpSession session,Model model){
         boolean result = memberService.login(memberDTO);
         if (result){
             session.setAttribute("loginMemberEmail",memberDTO.getMemberEmail());
             model.addAttribute("loginMemberEmail",memberDTO.getMemberEmail());
-            return "member/memberLogin";
+            return new ResponseEntity<>(HttpStatus.OK); // http status code 200
         } else {
-            model.addAttribute("errorMessage", "이메일 또는 비밀번호가 올바르지 않습니다.");
-            return "index";
+            return new ResponseEntity<>(HttpStatus.CONFLICT);
         }
     }
     @GetMapping("/logout")

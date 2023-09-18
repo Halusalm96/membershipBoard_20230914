@@ -6,7 +6,7 @@
 </head>
 <body>
     <form action="/member/save/date" method="post">
-        <input type="text" name="memberEmail" id="memberEmail" onkeyup="Email_fn()" placeholder="이메일 입력">
+        <input type="email" name="memberEmail" id="memberEmail" onkeyup="Email_fn()" placeholder="이메일 입력">
         <p id="email-check-result"></p>
         <input type="text" name="memberPassword" placeholder="비밀번호 입력">
         <input type="text" name="memberName" placeholder="이름 입력">
@@ -32,7 +32,6 @@
                 result.innerHTML = "이미 사용중인 이메일입니다."
             }
         });
-
     }
 </script>
 </html>

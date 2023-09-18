@@ -24,6 +24,12 @@
         update membership_member_table set memberName= #{memberName},memberMobile=#{memberMobile}
         where memberEmail= #{memberEmail}
     </update>
+    <select id="list" resultType="member">
+        select * from membership_member_table
+    </select>
+    <select id="detail" parameterType="Long" resultType="member">
+        select * from membership_member_table where id=#{id}
+    </select>
 </mapper>
 
 

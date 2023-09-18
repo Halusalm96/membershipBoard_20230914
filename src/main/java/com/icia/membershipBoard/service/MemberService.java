@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -38,5 +39,13 @@ public class MemberService {
 
     public void update(MemberDTO memberDTO) {
         memberRepository.update(memberDTO);
+    }
+
+    public List<MemberDTO> list() {
+        return memberRepository.list();
+    }
+
+    public MemberDTO detail(Long id) {
+        return memberRepository.detail(id);
     }
 }

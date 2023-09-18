@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 @RequestMapping("")
@@ -71,5 +72,17 @@ public class MemberController {
     public String memberSaveUpdate(@ModelAttribute MemberDTO memberDTO){
         memberService.update(memberDTO);
         return "member/memberLogin";
+    }
+    @GetMapping("/member/list")
+    public String memberList(Model model){
+        List<MemberDTO> memberDTOList = memberService.list();
+        model.addAttribute("memberList",memberDTOList);
+        return "/member/memberList";
+    }
+    @GetMapping("member/detail")
+    public String memberDetail(@RequestParam("id") Long id, Model model){
+        MemberDTO memberDTO = memberService.detail(id);
+        model.addAttribute("member",memberDTO);
+        return "member/memberDetail";
     }
 }

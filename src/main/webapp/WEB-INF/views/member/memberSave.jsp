@@ -5,6 +5,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body>
+<%@include file="component/nav.jsp" %>
     <form action="/member/save/date" method="post">
         <input type="email" name="memberEmail" id="memberEmail" onkeyup="Email_fn()" placeholder="이메일 입력">
         <p id="email-check-result"></p>
@@ -34,5 +35,6 @@
             }
         });
     }
+    <%@include file="component/footer.jsp" %>
 </script>
 </html>

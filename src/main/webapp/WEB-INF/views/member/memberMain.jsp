@@ -5,6 +5,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body>
+<%@include file="component/nav.jsp" %>
 <form action="/member/save/update" method="post" name="updateForm">
     <input type="hidden" id="id" name="id" value="${memberDTO.id}">
     <input type="email" name="memberEmail" id="memberEmail" value="${memberDTO.memberEmail}" readonly>
@@ -35,5 +36,6 @@
             alert("비밀번호가 일치하지 않습니다!");
         }
     }
+    <%@include file="component/footer.jsp" %>
 </script>
 </html>

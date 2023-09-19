@@ -30,8 +30,9 @@ public class MemberRepository {
         return sql.selectOne("Member.findOne",memberEmail);
     }
 
-    public void update(MemberDTO memberDTO) {
+    public MemberDTO update(MemberDTO memberDTO) {
         sql.update("Member.update",memberDTO);
+        return memberDTO;
     }
 
     public List<MemberDTO> list() {

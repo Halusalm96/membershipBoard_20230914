@@ -1,5 +1,6 @@
 package com.icia.membershipBoard.controller;
 
+import com.icia.membershipBoard.dto.BoardDTO;
 import com.icia.membershipBoard.dto.CommentDTO;
 import com.icia.membershipBoard.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +16,14 @@ import java.util.List;
 public class CommentController {
     @Autowired
     CommentService commentService = new CommentService();
-    @PostMapping("/commnet/save")
+    @PostMapping("/comment/save")
     public String commentSave(@ModelAttribute CommentDTO commentDTO, Model model){
         commentService.commentSaveDate(commentDTO);
         List<CommentDTO> commentDTOList = commentService.commentList();
-        System.out.println(commentDTOList);
+        BoardDTO boardDTO = new BoardDTO();
+        model.addAttribute("boardList", boardDTO);
         model.addAttribute("commentList", commentDTOList);
-        return "boardDeatil";
+        return "board/boardDetail";
     }
+
 }

@@ -4,6 +4,7 @@
     <title> 게시판 글 작성 </title>
 </head>
 <body>
+<%@include file="component/nav.jsp" %>
     <form action="/board/save/date" method="post">
         <input type="text" name="boardTitle" placeholder="제목">
         <input type="text" name="boardWriter" value="${loginMemberEmail}" readonly>

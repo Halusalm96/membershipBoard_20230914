@@ -5,9 +5,7 @@ import com.icia.membershipBoard.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class MemberService {
@@ -37,8 +35,8 @@ public class MemberService {
         return memberRepository.findOne(memberEmail);
     }
 
-    public void update(MemberDTO memberDTO) {
-        memberRepository.update(memberDTO);
+    public MemberDTO update(MemberDTO memberDTO) {
+        return memberRepository.update(memberDTO);
     }
 
     public List<MemberDTO> list() {

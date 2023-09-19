@@ -69,8 +69,10 @@ public class MemberController {
         return "member/memberMain";
     }
     @PostMapping("/member/save/update")
-    public String memberSaveUpdate(@ModelAttribute MemberDTO memberDTO){
-        memberService.update(memberDTO);
+    public String memberSaveUpdate(@ModelAttribute MemberDTO memberDTO, Model model){
+        MemberDTO memberDTO1 =  memberService.update(memberDTO);
+
+        model.addAttribute("loginMemberEmail",memberDTO1);
         return "member/memberLogin";
     }
     @GetMapping("/member/list")
@@ -88,6 +90,6 @@ public class MemberController {
     @GetMapping("/member/delete")
     public String memberDelete(@RequestParam("id") Long id){
         memberService.delete(id);
-        return "member/memberLogin";
+        return "index";
     }
 }

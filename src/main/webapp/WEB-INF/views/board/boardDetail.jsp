@@ -5,6 +5,7 @@
     <title> 글 정보 상세 조회 </title>
 </head>
 <body>
+<%@include file="component/nav.jsp" %>
 <table class="table table-bordered">
     <tr>
         <td>번호</td>
@@ -38,7 +39,7 @@
             <td>${commentList.id}</td>
             <td>${commentList.commentWriter}</td>
             <td>${commentList.commentContents}</td>
-            <td>${commentList.creatdeAt}</td>
+            <td>${commentList.createdAt}</td>
         </tr>
     </c:forEach>
 </table>
@@ -50,6 +51,6 @@
 </form>
 </body>
 <script>
-    const id = ${board.id};
+
 </script>
 </html>

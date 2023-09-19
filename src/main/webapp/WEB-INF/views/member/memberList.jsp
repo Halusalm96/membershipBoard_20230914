@@ -5,6 +5,7 @@
   <title> 게시판 글 목록 </title>
 </head>
 <body>
+<%@include file="component/nav.jsp" %>
 <div id="section">
   <%-- 검색 창 --%>
   <div class="container" id="search-area">

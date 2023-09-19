@@ -1,9 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title> 회원 상세 조회 </title>
 </head>
 <body>
+<%@include file="component/nav.jsp" %>
 <table class="table table-bordered">
     <tr>
         <td>번호</td>
@@ -13,6 +15,7 @@
         <td>전화번호</td>
         <%--        <td>이미지</td>--%>
     </tr>
+
     <c:forEach items="${memberList}" var="member">
         <tr>
             <td>${member.id}</td>

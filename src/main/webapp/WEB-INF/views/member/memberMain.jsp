@@ -6,6 +6,7 @@
 </head>
 <body>
 <%@include file="component/nav.jsp" %>
+
 <form action="/member/save/update" method="post" name="updateForm">
     <input type="hidden" id="id" name="id" value="${memberDTO.id}">
     <input type="email" name="memberEmail" id="memberEmail" value="${memberDTO.memberEmail}" readonly>
@@ -16,6 +17,7 @@
     <%--    <input type="file" name="memberFile" multiple value="${memberDTO.memberFile}"> <br>--%>
     <input type="button" value="탈퇴" onclick="member_delete()">
     <input type="button" value="완료" onclick="member_update()">
+</form>
 </body>
 <script>
     const member_update = () => {
@@ -31,7 +33,7 @@
         const pass = '${memberDTO.memberPassword}';
         const inputPass = document.getElementById("board-pass").value;
         if (pass == inputPass) {
-            location.href="/delete?id=${memberDTO.id}";
+            location.href = "/member/delete?id=${memberDTO.id}";
         } else {
             alert("비밀번호가 일치하지 않습니다!");
         }

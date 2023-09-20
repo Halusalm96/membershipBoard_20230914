@@ -25,5 +25,4 @@ public class CommentController {
         model.addAttribute("commentList", commentDTOList);
         return "board/boardDetail";
     }
-
 }

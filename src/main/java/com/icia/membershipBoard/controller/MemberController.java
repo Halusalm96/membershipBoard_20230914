@@ -92,4 +92,9 @@ public class MemberController {
         memberService.delete(id);
         return "index";
     }
+    @GetMapping("/member/main/delete")
+    public String memberMainDelete(@RequestParam("id") Long id){
+        memberService.delete(id);
+        return "member/memberList";
+    }
 }

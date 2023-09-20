@@ -9,10 +9,12 @@
         /* 추가적인 CSS 스타일 */
         body {
             background-color: #f0f0f0;
-            padding: 20px;
+            margin: 0;
+            padding: 0;
+
         }
 
-        .container {
+        .custom-container {
             background-color: #fff;
             padding: 20px;
             border-radius: 5px;
@@ -51,7 +53,7 @@
 </head>
 <body>
 <%@include file="component/nav.jsp" %>
-<div class="container">
+<div class="custom-container">
     <h2>회원 페이지</h2>
     <form action="/member/save/update" method="post" name="updateForm">
         <input type="hidden" id="id" name="id" value="${memberDTO.id}">

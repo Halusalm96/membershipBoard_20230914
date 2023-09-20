@@ -93,8 +93,10 @@ public class MemberController {
         return "index";
     }
     @GetMapping("/member/main/delete")
-    public String memberMainDelete(@RequestParam("id") Long id){
+    public String memberMainDelete(@RequestParam("id") Long id,Model model){
         memberService.delete(id);
+        List<MemberDTO> memberDTOList = memberService.list();
+        model.addAttribute("memberList",memberDTOList);
         return "member/memberList";
     }
 }

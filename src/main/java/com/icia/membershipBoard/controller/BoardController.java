@@ -1,9 +1,11 @@
 package com.icia.membershipBoard.controller;
 
 import com.icia.membershipBoard.dto.BoardDTO;
+import com.icia.membershipBoard.dto.CommentDTO;
 import com.icia.membershipBoard.dto.MemberDTO;
 import com.icia.membershipBoard.dto.PageDTO;
 import com.icia.membershipBoard.service.BoardService;
+import com.icia.membershipBoard.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +21,8 @@ import java.util.List;
 public class BoardController {
     @Autowired
     BoardService boardService = new BoardService();
+    @Autowired
+    CommentService commentService = new CommentService();
     @GetMapping ("/board/save")
     public String boardSave(@ModelAttribute MemberDTO memberDTO, Model model){
         model.addAttribute("member",memberDTO);
@@ -41,6 +45,8 @@ public class BoardController {
         BoardDTO boardDTO = boardService.boardDetail(id);
         model.addAttribute("board",boardDTO);
         session.setAttribute("board",boardDTO);
+        List<CommentDTO> commentDTOList = commentService.commentList();
+        model.addAttribute("commentList", commentDTOList);
         return "board/boardDetail";
     }
     @GetMapping("/board/check")

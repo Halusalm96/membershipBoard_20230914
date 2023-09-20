@@ -9,7 +9,8 @@
         /* 추가적인 CSS 스타일 */
         body {
             background-color: #f0f0f0;
-            padding: 20px;
+            margin: 0; /* body 요소의 margin을 0으로 설정 */
+            padding: 20px 0; /* 위 아래 여백만 남기고 좌우 여백 없음 */
         }
 
         .container {
@@ -17,6 +18,9 @@
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 0 auto; /* 수평 가운데 정렬을 위해 추가 */
+            max-width: 100%; /* 화면 크기에 따라 최대 너비 설정 */
+            margin-top: 0; /* container 요소의 위쪽 margin을 0으로 설정 */
         }
 
         table {

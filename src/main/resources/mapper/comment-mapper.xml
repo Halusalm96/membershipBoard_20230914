@@ -11,9 +11,3 @@
         select * from membership_comment_table
     </select>
 </mapper>
-
-
-
-
-
-
